@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>منصة الاستثمار الإسلامي الذكية | Islamic Investment Orchestrator</title>
+    <meta name="description" content="منصة استثمارية إسلامية احترافية تربط المستثمرين بالمشاريع الحلال مع إدارة كاملة ومتابعة شرعية">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700;800&family=Playfair+Display:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --gold-primary: #C9A961;
+            --gold-dark: #9B7E3F;
+            --gold-light: #E8D4A0;
+            --gold-shine: #F4E4BC;
+            --blue-dark: #0A2540;
+            --blue-primary: #1A3A5C;
+            --blue-light: #2B5278;
+            --green-primary: #00B88D;
+            --green-dark: #008F6D;
+            --green-light: #3DCFAA;
+            --white: #FFFFFF;
+            --off-white: #F8F6F0;
+            --cream: #FFF9EE;
+            --gray-light: #E5E5E5;
+            --gray: #999999;
+            --gray-dark: #333333;
+            --shadow-sm: 0 2px 8px rgba(201, 169, 97, 0.1);
+            --shadow-md: 0 4px 16px rgba(201, 169, 97, 0.15);
+            --shadow-lg: 0 8px 32px rgba(201, 169, 97, 0.2);
+            --shadow-xl: 0 12px 48px rgba(201, 169, 97, 0.25);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: var(--off-white);
+            color: var(--gray-dark);
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+        
+        [dir="ltr"] body {
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .islamic-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.03;
+            z-index: -1;
+            background-image: 
+                repeating-linear-gradient(45deg, transparent, transparent 35px, var(--gold-primary) 35px, var(--gold-primary) 70px),
+                repeating-linear-gradient(-45deg, transparent, transparent 35px, var(--gold-primary) 35px, var(--gold-primary) 70px);
+            animation: patternMove 60s linear infinite;
+        }
+        
+        @keyframes patternMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(70px, 70px); }
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue-primary) 100%);
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 2rem;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-light));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 4px 12px rgba(201, 169, 97, 0.3);
+            animation: logoFloat 3s ease-in-out infinite;
+        }
+        
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        
+        .logo-text h1 {
+            font-family: 'Amiri', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gold-primary);
+            margin: 0;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .logo-text p {
+            font-size: 0.75rem;
+            color: var(--gold-light);
+            margin: 0;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            position: relative;
+            transition: all 0.3s;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold-primary), var(--gold-light));
+            transition: width 0.3s;
+        }
+        
+        [dir="ltr"] .nav-links a::after {
+            right: auto;
+            left: 0;
+        }
+        
+        .nav-links a:hover {
+            color: var(--gold-primary);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .nav-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        .lang-toggle, .btn-primary, .btn-secondary {
+            padding: 0.75rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .lang-toggle {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            border: 2px solid var(--gold-primary);
+            padding: 0.5rem 1.2rem;
+        }
+        
+        .lang-toggle:hover {
+            background: var(--gold-primary);
+            transform: scale(1.05);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-light));
+            color: var(--blue-dark);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--blue-primary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue-primary) 50%, var(--blue-light) 100%);
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(201,169,97,0.1)" stroke-width="1"/></pattern></defs><rect width="1200" height="600" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+            animation: heroPattern 20s linear infinite;
+        }
+        
+        @keyframes heroPattern {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(60px); }
+        }
+        
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-text h2 {
+            font-family: 'Amiri', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--gold-primary);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .hero-text p {
+            font-size: 1.3rem;
+            color: var(--cream);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+            animation: fadeInUp 1s ease-out 0.2s backwards;
+        }
+        
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+            animation: fadeInUp 1s ease-out 0.4s backwards;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(201, 169, 97, 0.3);
+            transition: all 0.3s;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: var(--gold-primary);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-item p {
+            font-size: 0.95rem;
+            color: var(--cream);
+            margin: 0;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        section {
+            padding: 6rem 2rem;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-label {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold-primary));
+            color: var(--blue-dark);
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .section-header h2 {
+            font-family: 'Amiri', serif;
+            font-size: 3rem;
+            color: var(--blue-dark);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .investment-journey {
+            background: var(--white);
+        }
+        
+        .journey-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            position: relative;
+        }
+        
+        .journey-steps::before {
+            content: '';
+            position: absolute;
+            top: 60px;
+            right: 10%;
+            width: 80%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold-primary), var(--gold-light));
+            z-index: 0;
+        }
+        
+        [dir="ltr"] .journey-steps::before {
+            right: auto;
+            left: 10%;
+        }
+        
+        .journey-step {
+            background: var(--white);
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            border: 2px solid var(--gray-light);
+            transition: all 0.3s;
+        }
+        
+        .journey-step:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold-primary);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .step-number {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--white);
+            margin: 0 auto 1.5rem;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .journey-step h3 {
+            font-size: 1.4rem;
+            color: var(--blue-dark);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .journey-step p {
+            color: var(--gray);
+            line-height: 1.6;
+        }
+        
+        .step-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .investment-types {
+            background: linear-gradient(135deg, var(--cream) 0%, var(--off-white) 100%);
+        }
+        
+        .types-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+        }
+        
+        .type-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 3rem 2.5rem;
+            box-shadow: var(--shadow-md);
+            border: 2px solid transparent;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .type-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--gold-primary), var(--gold-light));
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: all 0.3s;
+        }
+        
+        [dir="ltr"] .type-card::before {
+            transform-origin: left;
+        }
+        
+        .type-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .type-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold-primary);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .type-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold-primary));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .type-card h3 {
+            font-size: 1.8rem;
+            color: var(--blue-dark);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .type-card .arabic-name {
+            font-family: 'Amiri', serif;
+            font-size: 1.3rem;
+            color: var(--gold-primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .type-features {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+        
+        .type-features li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--gray-light);
+            color: var(--gray-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .type-features li::before {
+            content: '✓';
+            color: var(--green-primary);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--blue-dark);
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(100px);
+            transition: all 0.3s;
+            z-index: 999;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        [dir="ltr"] .scroll-top {
+            left: auto;
+            right: 30px;
+        }
+        
+        .scroll-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .scroll-top:hover {
+            transform: translateY(-5px);
+        }
+        
+        footer {
+            background: var(--blue-dark);
+            color: var(--cream);
+            padding: 4rem 2rem 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-about h3 {
+            font-family: 'Amiri', serif;
+            color: var(--gold-primary);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(201, 169, 97, 0.2);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--gray);
+        }
+        
+        @media (max-width: 1200px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .types-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links,
+            .nav-actions {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero-text h2 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .journey-steps {
+                grid-template-columns: 1fr;
+            }
+            
+            .journey-steps::before {
+                display: none;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="islamic-pattern"></div>
+    
+    <header>
+        <nav>
+            <a href="#" class="logo">
+                <div class="logo-icon">☪️</div>
+                <div class="logo-text">
+                    <h1>منصة الاستثمار الإسلامي</h1>
+                    <p>حيث يلتقي الإيمان بالاستثمار</p>
+                </div>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="#journey">رحلة الاستثمار</a></li>
+                <li><a href="#types">أنواع الاستثمار</a></li>
+                <li><a href="#compliance">الامتثال الشرعي</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <button class="lang-toggle" onclick="toggleLanguage()">English</button>
+                <a href="#" class="btn-secondary">تسجيل الدخول</a>
+                <a href="#" class="btn-primary">ابدأ الآن</a>
+            </div>
+            
+            <button class="mobile-menu-btn">☰</button>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h2>استثمر أموالك بطريقة حلال<br>مع إشراف شرعي كامل</h2>
+                <p>منصة استثمارية إسلامية ذكية تربط المستثمرين بمشاريع حقيقية مدروسة ومفلترة، بدون ربا، مع توزيع ذكي للمخاطر وشفافية كاملة</p>
+                <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+                    <a href="#journey" class="btn-primary">🚀 ابدأ رحلتك الاستثمارية</a>
+                    <a href="#types" class="btn-secondary">📊 تعرف على الأنواع</a>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <h3>$2.4B+</h3>
+                        <p>حجم الاستثمارات</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>15K+</h3>
+                        <p>مستثمر نشط</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>100%</h3>
+                        <p>حلال ومتوافق شرعياً</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="journey" class="investment-journey">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">🎯 رحلتك الاستثمارية</span>
+                <h2>أربع خطوات بسيطة نحو الاستثمار الحلال</h2>
+                <p>نحن نجعل الاستثمار الإسلامي سهلاً ومريحاً وآمناً - من التخطيط حتى جني الأرباح</p>
+            </div>
+            
+            <div class="journey-steps">
+                <div class="journey-step">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">📋</div>
+                    <h3>التخطيط للاستثمار</h3>
+                    <p>حدد أهدافك المالية، مستوى المخاطرة المناسب لك، والمدة الزمنية. سنساعدك في وضع خطة استثمارية ذكية ومتوافقة مع الشريعة</p>
+                </div>
+                
+                <div class="journey-step">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">🎯</div>
+                    <h3>اختيار نوع الاستثمار</h3>
+                    <p>اختر بين المضاربة، المشاركة، أو المرابحة. كل نوع له مميزاته وطريقة توزيع الأرباح الخاصة به وفق الشريعة الإسلامية</p>
+                </div>
+                
+                <div class="journey-step">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">📊</div>
+                    <h3>متابعة استثمارك</h3>
+                    <p>تابع أداء استثماراتك من خلال لوحة تحكم شاملة توفر تقارير دورية، تحديثات فورية، وتحليلات مفصلة بشفافية كاملة</p>
+                </div>
+                
+                <div class="journey-step">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">💰</div>
+                    <h3>جني الأرباح</h3>
+                    <p>اسحب أرباحك بسهولة وأمان عند استحقاقها. كل الأرباح موزعة وفق العقد الشرعي المتفق عليه بدون أي فوائد ربوية</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="types" class="investment-types">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">💎 أنواع الاستثمار الإسلامي</span>
+                <h2>اختر النموذج الاستثماري المناسب لك</h2>
+                <p>ثلاثة نماذج استثمارية متوافقة مع الشريعة الإسلامية، كل منها مصمم لتلبية احتياجاتك وأهدافك المالية</p>
+            </div>
+            
+            <div class="types-grid">
+                <div class="type-card">
+                    <div class="type-icon">🤝</div>
+                    <h3>المضاربة</h3>
+                    <p class="arabic-name">Mudaraba</p>
+                    <p>نموذج استثماري يقدم فيه المستثمر رأس المال بينما يدير صاحب المشروع العمل. الأرباح تُقسم حسب نسب متفق عليها مسبقاً</p>
+                    <ul class="type-features">
+                        <li>المستثمر يوفر رأس المال</li>
+                        <li>المدير يدير المشروع</li>
+                        <li>توزيع الأرباح: 70% / 30%</li>
+                        <li>الخسائر يتحملها المستثمر</li>
+                    </ul>
+                    <a href="#" class="btn-primary" style="width: 100%; justify-content: center;">ابدأ بالمضاربة</a>
+                </div>
+                
+                <div class="type-card">
+                    <div class="type-icon">🏢</div>
+                    <h3>المشاركة</h3>
+                    <p class="arabic-name">Musharaka</p>
+                    <p>شراكة حقيقية حيث يساهم جميع الأطراف برأس المال والإدارة. الأرباح والخسائر موزعة حسب نسب المساهمة</p>
+                    <ul class="type-features">
+                        <li>جميع الأطراف يساهمون</li>
+                        <li>مشاركة في الإدارة</li>
+                        <li>توزيع حسب الاتفاق</li>
+                        <li>شفافية كاملة</li>
+                    </ul>
+                    <a href="#" class="btn-primary" style="width: 100%; justify-content: center;">ابدأ بالمشاركة</a>
+                </div>
+                
+                <div class="type-card">
+                    <div class="type-icon">📈</div>
+                    <h3>المرابحة</h3>
+                    <p class="arabic-name">Murabaha</p>
+                    <p>صيغة تمويل تجاري حيث تشتري المنصة الأصول وتبيعها للعميل بسعر متفق عليه مع هامش ربح واضح ومحدد</p>
+                    <ul class="type-features">
+                        <li>المنصة تشتري الأصول</li>
+                        <li>البيع بسعر + هامش</li>
+                        <li>دفعات مرنة بدون فوائد</li>
+                        <li>متوفر قريباً</li>
+                    </ul>
+                    <a href="#" class="btn-primary" style="width: 100%; justify-content: center; opacity: 0.6; cursor: not-allowed;">قريباً</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-about">
+                <h3>منصة الاستثمار الإسلامي</h3>
+                <p>نحن نبني بنية تحتية مالية إسلامية رقمية تجمع بين 1400 عام من الحكمة المالية الإسلامية مع تقنيات القرن الحادي والعشرين.</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2026 منصة الاستثمار الإسلامي. جميع الحقوق محفوظة. | صُنع بـ ❤️ و ☪️ للمجتمع الإسلامي</p>
+        </div>
+    </footer>
+    
+    <div class="scroll-top" id="scrollTop" onclick="scrollToTop()">↑</div>
+    
+    <script>
+        let currentLang = 'ar';
+        
+        function toggleLanguage() {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            const html = document.documentElement;
+            html.setAttribute('lang', currentLang);
+            html.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
+            localStorage.setItem('preferred-lang', currentLang);
+        }
+        
+        const scrollTopBtn = document.getElementById('scrollTop');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+        
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
