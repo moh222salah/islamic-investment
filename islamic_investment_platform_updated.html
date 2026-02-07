@@ -1,0 +1,1899 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="منصة استثمار إسلامية ذكية - تربط رأس المال بالمشاريع الحقيقية بإشراف شرعي وتقني كامل">
+    <meta name="keywords" content="استثمار إسلامي, حلال, تمويل, مضاربة, مشاركة, ERPNext">
+    <meta name="author" content="MOHAMED SALAH">
+    <title>منصة الاستثمار الإسلامي الذكية | Smart Islamic Investment Platform</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-gold: #D4AF37;
+            --primary-dark: #0F1E35;
+            --primary-blue: #1E3A5F;
+            --accent-teal: #00ACC1;
+            --accent-green: #4CAF50;
+            --text-light: #FFFFFF;
+            --text-dark: #1A1A1A;
+            --bg-gradient: linear-gradient(135deg, #0F1E35 0%, #1E3A5F 50%, #2C5282 100%);
+            --gold-gradient: linear-gradient(135deg, #D4AF37 0%, #F4D03F 100%);
+            --shadow-gold: 0 8px 32px rgba(212, 175, 55, 0.3);
+            --shadow-dark: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Light Mode Variables */
+        [data-theme="light"] {
+            --primary-dark: #FFFFFF;
+            --primary-blue: #F5F7FA;
+            --text-light: #1A1A1A;
+            --text-dark: #FFFFFF;
+            --bg-gradient: linear-gradient(135deg, #FFFFFF 0%, #F5F7FA 50%, #E8ECF1 100%);
+            --shadow-dark: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', 'Poppins', sans-serif;
+            background: var(--primary-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.8;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        body[dir="ltr"] {
+            font-family: 'Poppins', 'Cairo', sans-serif;
+        }
+
+        /* Animated Islamic Pattern Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 172, 193, 0.03) 0%, transparent 50%),
+                repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(212, 175, 55, 0.02) 10px, rgba(212, 175, 55, 0.02) 20px);
+            z-index: -1;
+            animation: patternMove 60s linear infinite;
+        }
+
+        @keyframes patternMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(15, 30, 53, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            box-shadow: var(--shadow-dark);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="light"] .header {
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .header.scrolled {
+            padding: 0.5rem 2rem;
+            background: rgba(15, 30, 53, 0.98);
+        }
+
+        [data-theme="light"] .header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-gold);
+            text-decoration: none;
+        }
+
+        .logo .material-icons {
+            font-size: 2.5rem;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold-gradient);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-gold);
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .lang-toggle, .theme-toggle {
+            background: var(--gold-gradient);
+            border: none;
+            color: var(--primary-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-gold);
+            font-size: 0.95rem;
+            min-width: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-toggle {
+            padding: 0.5rem;
+            min-width: 40px;
+        }
+
+        .theme-toggle .material-icons {
+            font-size: 1.2rem;
+        }
+
+        .lang-toggle:hover, .theme-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(212, 175, 55, 0.4);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: var(--gold-gradient);
+            border: none;
+            color: var(--primary-dark);
+            padding: 0.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-btn .material-icons {
+            font-size: 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 120px 2rem 4rem;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 30% 50%, rgba(212, 175, 55, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 70% 50%, rgba(0, 172, 193, 0.15) 0%, transparent 60%);
+            animation: heroGlow 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes heroGlow {
+            0% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-icon {
+            font-size: 6rem;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 900px;
+            margin: 0 auto 3rem;
+            line-height: 2;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        [data-theme="light"] .hero p {
+            color: rgba(26, 26, 26, 0.8);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.8s both;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 1rem 3rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--gold-gradient);
+            color: var(--primary-dark);
+            box-shadow: var(--shadow-gold);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 45px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-light);
+            border: 2px solid var(--primary-gold);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-gold);
+            color: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+
+        /* Features Section */
+        .section {
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        [data-theme="light"] .section-header p {
+            color: rgba(26, 26, 26, 0.7);
+        }
+
+        .features-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: rgba(30, 58, 95, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        [data-theme="light"] .feature-card {
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gold-gradient);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-gold);
+            border-color: var(--primary-gold);
+        }
+
+        .feature-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .feature-icon {
+            font-size: 3.5rem;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+        }
+
+        [data-theme="light"] .feature-card p {
+            color: rgba(26, 26, 26, 0.8);
+        }
+
+        /* Investment Models Section */
+        .models-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .model-card {
+            background: var(--bg-gradient);
+            border: 2px solid var(--primary-gold);
+            border-radius: 25px;
+            padding: 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="light"] .model-card {
+            background: linear-gradient(135deg, #FFFFFF 0%, #F5F7FA 100%);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .model-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            animation: rotateGlow 10s linear infinite;
+        }
+
+        @keyframes rotateGlow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .model-card:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-gold);
+        }
+
+        .model-icon {
+            font-size: 4rem;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
+        }
+
+        .model-card h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .model-card p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        [data-theme="light"] .model-card p {
+            color: rgba(26, 26, 26, 0.8);
+        }
+
+        .model-features {
+            text-align: right;
+            margin-bottom: 2rem;
+        }
+
+        body[dir="ltr"] .model-features {
+            text-align: left;
+        }
+
+        .model-features li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            color: rgba(255, 255, 255, 0.9);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        [data-theme="light"] .model-features li {
+            color: rgba(26, 26, 26, 0.8);
+        }
+
+        .model-features .material-icons {
+            color: var(--accent-green);
+            font-size: 1.2rem;
+        }
+
+        /* Dashboard Section */
+        .dashboard-preview {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(30, 58, 95, 0.3);
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--primary-gold);
+            border-radius: 20px;
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        [data-theme="light"] .dashboard-preview {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .dashboard-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            background: rgba(212, 175, 55, 0.2);
+        }
+
+        .stat-card .material-icons {
+            font-size: 3rem;
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+        }
+
+        [data-theme="light"] .stat-label {
+            color: rgba(26, 26, 26, 0.7);
+        }
+
+        /* Technology Section */
+        .tech-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .tech-card {
+            background: rgba(30, 58, 95, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="light"] .tech-card {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .tech-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-gold);
+            box-shadow: var(--shadow-gold);
+        }
+
+        .tech-card .material-icons {
+            font-size: 3rem;
+            color: var(--accent-teal);
+            margin-bottom: 1rem;
+        }
+
+        .tech-card h4 {
+            font-size: 1.3rem;
+            color: var(--primary-gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .tech-card p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+        }
+
+        [data-theme="light"] .tech-card p {
+            color: rgba(26, 26, 26, 0.7);
+        }
+
+        /* FAQ Section */
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: rgba(30, 58, 95, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="light"] .faq-item {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .faq-question {
+            padding: 1.5rem 2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .faq-question h3 {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        .faq-question .material-icons {
+            color: var(--primary-gold);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question .material-icons {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-answer-content {
+            padding: 0 2rem 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+        }
+
+        [data-theme="light"] .faq-answer-content {
+            color: rgba(26, 26, 26, 0.8);
+        }
+
+        /* CTA Contact Section */
+        .cta-section {
+            padding: 6rem 2rem;
+            background: var(--bg-gradient);
+            position: relative;
+            overflow: hidden;
+        }
+
+        [data-theme="light"] .cta-section {
+            background: linear-gradient(135deg, #F5F7FA 0%, #E8ECF1 100%);
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+            animation: rotateGlow 20s linear infinite;
+        }
+
+        .cta-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            background: rgba(30, 58, 95, 0.4);
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--primary-gold);
+            border-radius: 30px;
+            padding: 4rem 3rem;
+            box-shadow: var(--shadow-gold);
+        }
+
+        [data-theme="light"] .cta-container {
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .cta-icon {
+            font-size: 5rem;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 2rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .cta-container h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .cta-container p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        [data-theme="light"] .cta-container p {
+            color: rgba(26, 26, 26, 0.8);
+        }
+
+        .cta-buttons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-btn {
+            padding: 2rem;
+            background: rgba(212, 175, 55, 0.1);
+            border: 2px solid var(--primary-gold);
+            border-radius: 20px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            cursor: pointer;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-5px);
+            background: var(--gold-gradient);
+            box-shadow: 0 15px 45px rgba(212, 175, 55, 0.4);
+        }
+
+        .cta-btn .material-icons {
+            font-size: 3rem;
+            color: var(--primary-gold);
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover .material-icons {
+            color: var(--primary-dark);
+            transform: scale(1.1);
+        }
+
+        .cta-btn-text {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .cta-btn-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-gold);
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover .cta-btn-title {
+            color: var(--primary-dark);
+        }
+
+        .cta-btn-subtitle {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="light"] .cta-btn-subtitle {
+            color: rgba(26, 26, 26, 0.7);
+        }
+
+        .cta-btn:hover .cta-btn-subtitle {
+            color: var(--primary-dark);
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(15, 30, 53, 0.95);
+            padding: 4rem 2rem 2rem;
+            border-top: 2px solid var(--primary-gold);
+        }
+
+        [data-theme="light"] .footer {
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--text-dark);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            color: var(--primary-gold);
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-section p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        [data-theme="light"] .footer-section p {
+            color: rgba(26, 26, 26, 0.7);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: var(--gold-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-dark);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-gold);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+            color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        [data-theme="light"] .footer-links li {
+            color: rgba(26, 26, 26, 0.7);
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        [data-theme="light"] .footer-links a {
+            color: rgba(26, 26, 26, 0.7);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-gold);
+        }
+
+        .footer-links .material-icons {
+            font-size: 1.2rem;
+            color: var(--primary-gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            padding-top: 2rem;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1rem;
+        }
+
+        [data-theme="light"] .footer-bottom p {
+            color: rgba(26, 26, 26, 0.6);
+        }
+
+        .designer-credit {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .designer-credit p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0.5rem;
+        }
+
+        [data-theme="light"] .designer-credit p {
+            color: rgba(26, 26, 26, 0.8);
+        }
+
+        .designer-credit a {
+            color: var(--primary-gold);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .designer-credit a:hover {
+            text-decoration: underline;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--gold-gradient);
+            border: none;
+            border-radius: 50%;
+            color: var(--primary-dark);
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-gold);
+            z-index: 999;
+        }
+
+        body[dir="ltr"] .back-to-top {
+            left: auto;
+            right: 2rem;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(212, 175, 55, 0.5);
+        }
+
+        .back-to-top .material-icons {
+            font-size: 1.8rem;
+        }
+
+        /* Fade-in Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .header {
+                padding: 0.75rem 1rem;
+            }
+
+            .header-container {
+                flex-wrap: wrap;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            .logo .material-icons {
+                font-size: 1.8rem;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                width: 250px;
+                height: calc(100vh - 70px);
+                background: rgba(15, 30, 53, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 2rem 1rem;
+                box-shadow: -5px 0 20px rgba(0, 0, 0, 0.3);
+                transition: right 0.3s ease;
+                gap: 0;
+            }
+
+            [data-theme="light"] .nav-menu {
+                background: rgba(255, 255, 255, 0.98);
+            }
+
+            body[dir="ltr"] .nav-menu {
+                right: auto;
+                left: -100%;
+                transition: left 0.3s ease;
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            body[dir="ltr"] .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                width: 100%;
+                padding: 1rem 0;
+                border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            }
+
+            .header-actions {
+                gap: 0.5rem;
+            }
+
+            .lang-toggle, .theme-toggle {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.85rem;
+                min-width: 45px;
+            }
+
+            .theme-toggle {
+                padding: 0.4rem;
+                min-width: 38px;
+            }
+
+            .theme-toggle .material-icons {
+                font-size: 1.1rem;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .mobile-menu-btn .material-icons {
+                font-size: 1.3rem;
+            }
+
+            .hero {
+                padding: 100px 1rem 3rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero h2 {
+                font-size: 1.3rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero-icon {
+                font-size: 4rem;
+            }
+
+            .section {
+                padding: 4rem 1rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .features-grid,
+            .models-grid,
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .cta-section {
+                padding: 4rem 1rem;
+            }
+
+            .cta-container {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .cta-container h2 {
+                font-size: 1.8rem;
+            }
+
+            .cta-buttons-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <a href="#" class="logo">
+                <span class="material-icons">mosque</span>
+                <span class="logo-text" data-ar="منصة الاستثمار الإسلامي" data-en="Smart Islamic Investment">منصة الاستثمار الإسلامي</span>
+            </a>
+            
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#features" data-ar="المزايا" data-en="Features">المزايا</a></li>
+                    <li><a href="#models" data-ar="نماذج الاستثمار" data-en="Investment Models">نماذج الاستثمار</a></li>
+                    <li><a href="#dashboard" data-ar="لوحة التحكم" data-en="Dashboard">لوحة التحكم</a></li>
+                    <li><a href="#technology" data-ar="التقنيات" data-en="Technology">التقنيات</a></li>
+                    <li><a href="#faq" data-ar="الأسئلة" data-en="FAQ">الأسئلة</a></li>
+                    <li><a href="#contact" data-ar="تواصل" data-en="Contact">تواصل</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <span class="material-icons">light_mode</span>
+                </button>
+                <button class="lang-toggle" onclick="toggleLanguage()">
+                    <span class="lang-text">EN</span>
+                </button>
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                    <span class="material-icons">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="material-icons hero-icon">account_balance</div>
+            <h1 data-ar="منصة الاستثمار الإسلامي الذكية" data-en="Smart Islamic Investment Platform">منصة الاستثمار الإسلامي الذكية</h1>
+            <h2 data-ar="استثمر بثقة وفق الشريعة الإسلامية" data-en="Invest with Confidence According to Islamic Law">استثمر بثقة وفق الشريعة الإسلامية</h2>
+            <p data-ar="منصة متكاملة تربط رأس المال بالمشاريع الحقيقية من خلال عقود المضاربة والمشاركة، بإشراف شرعي وتقني كامل يضمن الشفافية والنزاهة في كل خطوة." data-en="A comprehensive platform connecting capital with real projects through Mudarabah and Musharakah contracts, with full Sharia and technical supervision ensuring transparency and integrity at every step.">منصة متكاملة تربط رأس المال بالمشاريع الحقيقية من خلال عقود المضاربة والمشاركة، بإشراف شرعي وتقني كامل يضمن الشفافية والنزاهة في كل خطوة.</p>
+            <div class="cta-buttons">
+                <button class="btn-primary">
+                    <span class="material-icons">rocket_launch</span>
+                    <span data-ar="ابدأ الاستثمار الآن" data-en="Start Investing Now">ابدأ الاستثمار الآن</span>
+                </button>
+                <button class="btn-secondary">
+                    <span class="material-icons">play_circle</span>
+                    <span data-ar="شاهد كيف تعمل" data-en="Watch How It Works">شاهد كيف تعمل</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section fade-in" id="features">
+        <div class="section-header">
+            <h2 data-ar="لماذا تختار منصتنا؟" data-en="Why Choose Our Platform?">لماذا تختار منصتنا؟</h2>
+            <p data-ar="نقدم حلولاً استثمارية مبتكرة متوافقة مع الشريعة الإسلامية، مدعومة بأحدث التقنيات" data-en="We offer innovative Sharia-compliant investment solutions, powered by the latest technologies">نقدم حلولاً استثمارية مبتكرة متوافقة مع الشريعة الإسلامية، مدعومة بأحدث التقنيات</p>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card fade-in">
+                <div class="material-icons feature-icon">verified_user</div>
+                <h3 data-ar="✅ متوافق مع الشريعة 100%" data-en="✅ 100% Sharia Compliant">✅ متوافق مع الشريعة 100%</h3>
+                <p data-ar="جميع المعاملات تخضع للمراجعة والإشراف من قبل هيئة شرعية متخصصة" data-en="All transactions are reviewed and supervised by a specialized Sharia board">جميع المعاملات تخضع للمراجعة والإشراف من قبل هيئة شرعية متخصصة</p>
+            </div>
+
+            <div class="feature-card fade-in">
+                <div class="material-icons feature-icon">trending_up</div>
+                <h3 data-ar="📈 عوائد تنافسية" data-en="📈 Competitive Returns">📈 عوائد تنافسية</h3>
+                <p data-ar="استثمارات في مشاريع حقيقية مربحة مع نسب عوائد واضحة ومتوقعة" data-en="Investments in profitable real projects with clear and expected return rates">استثمارات في مشاريع حقيقية مربحة مع نسب عوائد واضحة ومتوقعة</p>
+            </div>
+
+            <div class="feature-card fade-in">
+                <div class="material-icons feature-icon">security</div>
+                <h3 data-ar="🔒 أمان وشفافية" data-en="🔒 Security & Transparency">🔒 أمان وشفافية</h3>
+                <p data-ar="تتبع دقيق لكل معاملة مع تقارير مالية دورية وتدقيق مستمر" data-en="Precise tracking of every transaction with periodic financial reports and continuous auditing">تتبع دقيق لكل معاملة مع تقارير مالية دورية وتدقيق مستمر</p>
+            </div>
+
+            <div class="feature-card fade-in">
+                <div class="material-icons feature-icon">speed</div>
+                <h3 data-ar="⚡ سهولة وسرعة" data-en="⚡ Ease & Speed">⚡ سهولة وسرعة</h3>
+                <p data-ar="واجهة بسيطة وسهلة الاستخدام مع عمليات سريعة وآمنة" data-en="Simple and easy-to-use interface with fast and secure operations">واجهة بسيطة وسهلة الاستخدام مع عمليات سريعة وآمنة</p>
+            </div>
+
+            <div class="feature-card fade-in">
+                <div class="material-icons feature-icon">assessment</div>
+                <h3 data-ar="📊 تقارير ذكية" data-en="📊 Smart Reports">📊 تقارير ذكية</h3>
+                <p data-ar="لوحة تحكم متقدمة بتقارير تفصيلية وتحليلات دقيقة لاستثماراتك" data-en="Advanced dashboard with detailed reports and precise analytics of your investments">لوحة تحكم متقدمة بتقارير تفصيلية وتحليلات دقيقة لاستثماراتك</p>
+            </div>
+
+            <div class="feature-card fade-in">
+                <div class="material-icons feature-icon">support_agent</div>
+                <h3 data-ar="🎯 دعم فني مستمر" data-en="🎯 Continuous Technical Support">🎯 دعم فني مستمر</h3>
+                <p data-ar="فريق دعم متخصص متاح على مدار الساعة لمساعدتك" data-en="Specialized support team available 24/7 to assist you">فريق دعم متخصص متاح على مدار الساعة لمساعدتك</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investment Models Section -->
+    <section class="section fade-in" id="models">
+        <div class="section-header">
+            <h2 data-ar="نماذج الاستثمار الإسلامية" data-en="Islamic Investment Models">نماذج الاستثمار الإسلامية</h2>
+            <p data-ar="اختر النموذج الاستثماري الذي يناسب أهدافك المالية" data-en="Choose the investment model that suits your financial goals">اختر النموذج الاستثماري الذي يناسب أهدافك المالية</p>
+        </div>
+
+        <div class="models-grid">
+            <div class="model-card fade-in">
+                <div class="material-icons model-icon">handshake</div>
+                <h3 data-ar="المضاربة" data-en="Mudarabah">المضاربة</h3>
+                <p data-ar="تقدم رأس المال ويقوم المضارب بإدارة المشروع" data-en="You provide capital and the Mudarib manages the project">تقدم رأس المال ويقوم المضارب بإدارة المشروع</p>
+                <ul class="model-features">
+                    <li><span class="material-icons">check_circle</span><span data-ar="رأس المال من المستثمر" data-en="Capital from investor">رأس المال من المستثمر</span></li>
+                    <li><span class="material-icons">check_circle</span><span data-ar="الإدارة من المضارب" data-en="Management by Mudarib">الإدارة من المضارب</span></li>
+                    <li><span class="material-icons">check_circle</span><span data-ar="توزيع الأرباح بنسب متفق عليها" data-en="Profit distribution by agreed ratios">توزيع الأرباح بنسب متفق عليها</span></li>
+                    <li><span class="material-icons">check_circle</span><span data-ar="الخسارة يتحملها رب المال" data-en="Loss borne by capital provider">الخسارة يتحملها رب المال</span></li>
+                </ul>
+                <button class="btn-primary">
+                    <span data-ar="ابدأ المضاربة" data-en="Start Mudarabah">ابدأ المضاربة</span>
+                </button>
+            </div>
+
+            <div class="model-card fade-in">
+                <div class="material-icons model-icon">groups</div>
+                <h3 data-ar="المشاركة" data-en="Musharakah">المشاركة</h3>
+                <p data-ar="شراكة كاملة في رأس المال والإدارة والأرباح والخسائر" data-en="Full partnership in capital, management, profits and losses">شراكة كاملة في رأس المال والإدارة والأرباح والخسائر</p>
+                <ul class="model-features">
+                    <li><span class="material-icons">check_circle</span><span data-ar="مشاركة في رأس المال" data-en="Capital participation">مشاركة في رأس المال</span></li>
+                    <li><span class="material-icons">check_circle</span><span data-ar="مشاركة في الإدارة" data-en="Management participation">مشاركة في الإدارة</span></li>
+                    <li><span class="material-icons">check_circle</span><span data-ar="توزيع الأرباح حسب الاتفاق" data-en="Profit distribution by agreement">توزيع الأرباح حسب الاتفاق</span></li>
+                    <li><span class="material-icons">check_circle</span><span data-ar="الخسائر حسب نسب رأس المال" data-en="Losses according to capital ratios">الخسائر حسب نسب رأس المال</span></li>
+                </ul>
+                <button class="btn-primary">
+                    <span data-ar="ابدأ المشاركة" data-en="Start Musharakah">ابدأ المشاركة</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Preview Section -->
+    <section class="section fade-in" id="dashboard">
+        <div class="section-header">
+            <h2 data-ar="لوحة التحكم الذكية" data-en="Smart Dashboard">لوحة التحكم الذكية</h2>
+            <p data-ar="تتبع استثماراتك وأرباحك في الوقت الفعلي" data-en="Track your investments and profits in real-time">تتبع استثماراتك وأرباحك في الوقت الفعلي</p>
+        </div>
+
+        <div class="dashboard-preview fade-in">
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <div class="material-icons">account_balance_wallet</div>
+                    <div class="stat-value">2.5M</div>
+                    <div class="stat-label" data-ar="إجمالي الاستثمارات" data-en="Total Investments">إجمالي الاستثمارات</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="material-icons">trending_up</div>
+                    <div class="stat-value">18.5%</div>
+                    <div class="stat-label" data-ar="متوسط العائد" data-en="Average Return">متوسط العائد</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="material-icons">verified</div>
+                    <div class="stat-value">350+</div>
+                    <div class="stat-label" data-ar="مشاريع نشطة" data-en="Active Projects">مشاريع نشطة</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="material-icons">people</div>
+                    <div class="stat-value">5,000+</div>
+                    <div class="stat-label" data-ar="مستثمرين" data-en="Investors">مستثمرين</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section class="section fade-in" id="technology">
+        <div class="section-header">
+            <h2 data-ar="التقنيات المستخدمة" data-en="Technologies Used">التقنيات المستخدمة</h2>
+            <p data-ar="نستخدم أحدث التقنيات لضمان أفضل تجربة استثمارية" data-en="We use the latest technologies to ensure the best investment experience">نستخدم أحدث التقنيات لضمان أفضل تجربة استثمارية</p>
+        </div>
+
+        <div class="tech-grid">
+            <div class="tech-card fade-in">
+                <div class="material-icons">computer</div>
+                <h4>ERPNext</h4>
+                <p data-ar="نظام إدارة موارد المؤسسة" data-en="Enterprise Resource Planning">نظام إدارة موارد المؤسسة</p>
+            </div>
+
+            <div class="tech-card fade-in">
+                <div class="material-icons">cloud</div>
+                <h4>Frappe Cloud</h4>
+                <p data-ar="استضافة سحابية آمنة" data-en="Secure cloud hosting">استضافة سحابية آمنة</p>
+            </div>
+
+            <div class="tech-card fade-in">
+                <div class="material-icons">code</div>
+                <h4>Python</h4>
+                <p data-ar="لغة البرمجة الأساسية" data-en="Primary programming language">لغة البرمجة الأساسية</p>
+            </div>
+
+            <div class="tech-card fade-in">
+                <div class="material-icons">web</div>
+                <h4>JavaScript</h4>
+                <p data-ar="تطوير الواجهات التفاعلية" data-en="Interactive interface development">تطوير الواجهات التفاعلية</p>
+            </div>
+
+            <div class="tech-card fade-in">
+                <div class="material-icons">storage</div>
+                <h4>MariaDB</h4>
+                <p data-ar="قاعدة بيانات قوية وآمنة" data-en="Powerful and secure database">قاعدة بيانات قوية وآمنة</p>
+            </div>
+
+            <div class="tech-card fade-in">
+                <div class="material-icons">shield</div>
+                <h4>SSL/TLS</h4>
+                <p data-ar="تشفير متقدم للبيانات" data-en="Advanced data encryption">تشفير متقدم للبيانات</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section fade-in" id="faq">
+        <div class="section-header">
+            <h2 data-ar="الأسئلة الشائعة" data-en="Frequently Asked Questions">الأسئلة الشائعة</h2>
+            <p data-ar="إجابات على أهم الأسئلة حول المنصة" data-en="Answers to the most important questions about the platform">إجابات على أهم الأسئلة حول المنصة</p>
+        </div>
+
+        <div class="faq-container">
+            <div class="faq-item fade-in">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3 data-ar="ما هي المضاربة الشرعية؟" data-en="What is Sharia-compliant Mudarabah?">ما هي المضاربة الشرعية؟</h3>
+                    <span class="material-icons">expand_more</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content" data-ar="المضاربة هي عقد شرعي بين طرفين: رب المال الذي يقدم رأس المال، والمضارب الذي يقوم بإدارة المشروع. يتم توزيع الأرباح بنسب متفق عليها مسبقاً، بينما تقع الخسارة المالية على رب المال فقط (ما لم يكن هناك تقصير من المضارب)." data-en="Mudarabah is a Sharia contract between two parties: the capital provider who provides the capital, and the Mudarib who manages the project. Profits are distributed according to pre-agreed ratios, while financial loss falls on the capital provider only (unless there is negligence by the Mudarib).">المضاربة هي عقد شرعي بين طرفين: رب المال الذي يقدم رأس المال، والمضارب الذي يقوم بإدارة المشروع. يتم توزيع الأرباح بنسب متفق عليها مسبقاً، بينما تقع الخسارة المالية على رب المال فقط (ما لم يكن هناك تقصير من المضارب).</div>
+                </div>
+            </div>
+
+            <div class="faq-item fade-in">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3 data-ar="كيف أضمن أن استثماري حلال؟" data-en="How do I ensure my investment is Halal?">كيف أضمن أن استثماري حلال؟</h3>
+                    <span class="material-icons">expand_more</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content" data-ar="جميع المشاريع والعقود على منصتنا تخضع للمراجعة والإشراف من قبل هيئة شرعية متخصصة. كل مشروع يحصل على شهادة توافق شرعي قبل عرضه للمستثمرين، ونوفر تقارير دورية من الهيئة الشرعية." data-en="All projects and contracts on our platform are reviewed and supervised by a specialized Sharia board. Each project receives a Sharia compliance certificate before being offered to investors, and we provide periodic reports from the Sharia board.">جميع المشاريع والعقود على منصتنا تخضع للمراجعة والإشراف من قبل هيئة شرعية متخصصة. كل مشروع يحصل على شهادة توافق شرعي قبل عرضه للمستثمرين، ونوفر تقارير دورية من الهيئة الشرعية.</div>
+                </div>
+            </div>
+
+            <div class="faq-item fade-in">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3 data-ar="ما هو الحد الأدنى للاستثمار؟" data-en="What is the minimum investment?">ما هو الحد الأدنى للاستثمار؟</h3>
+                    <span class="material-icons">expand_more</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content" data-ar="الحد الأدنى للاستثمار يختلف حسب نوع المشروع، ولكن بشكل عام يبدأ من 1,000 ريال سعودي. نسعى لجعل الاستثمار الإسلامي متاحاً للجميع مع الحفاظ على جدوى المشاريع." data-en="The minimum investment varies by project type, but generally starts from 1,000 Saudi Riyals. We strive to make Islamic investment accessible to everyone while maintaining project viability.">الحد الأدنى للاستثمار يختلف حسب نوع المشروع، ولكن بشكل عام يبدأ من 1,000 ريال سعودي. نسعى لجعل الاستثمار الإسلامي متاحاً للجميع مع الحفاظ على جدوى المشاريع.</div>
+                </div>
+            </div>
+
+            <div class="faq-item fade-in">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3 data-ar="كيف يتم توزيع الأرباح؟" data-en="How are profits distributed?">كيف يتم توزيع الأرباح؟</h3>
+                    <span class="material-icons">expand_more</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content" data-ar="يتم توزيع الأرباح وفقاً للعقد المبرم بين الأطراف. في عقود المضاربة، يتم التوزيع بنسب محددة مسبقاً (مثل 70% للمستثمر و30% للمضارب). في المشاركة، يمكن أن يكون التوزيع حسب رأس المال أو حسب اتفاق مختلف. يتم التحويل تلقائياً إلى حسابك." data-en="Profits are distributed according to the contract between the parties. In Mudarabah contracts, distribution is according to pre-determined ratios (such as 70% for the investor and 30% for the Mudarib). In Musharakah, distribution can be according to capital or a different agreement. Transfers are made automatically to your account.">يتم توزيع الأرباح وفقاً للعقد المبرم بين الأطراف. في عقود المضاربة، يتم التوزيع بنسب محددة مسبقاً (مثل 70% للمستثمر و30% للمضارب). في المشاركة، يمكن أن يكون التوزيع حسب رأس المال أو حسب اتفاق مختلف. يتم التحويل تلقائياً إلى حسابك.</div>
+                </div>
+            </div>
+
+            <div class="faq-item fade-in">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3 data-ar="هل يمكنني سحب أموالي في أي وقت؟" data-en="Can I withdraw my money at any time?">هل يمكنني سحب أموالي في أي وقت؟</h3>
+                    <span class="material-icons">expand_more</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content" data-ar="يعتمد ذلك على نوع العقد ومدة المشروع. بعض المشاريع لها فترة استثمار محددة، بينما البعض الآخر يتيح السحب المبكر مع شروط معينة. نوصي بقراءة شروط كل عقد بعناية قبل الاستثمار." data-en="This depends on the type of contract and project duration. Some projects have a fixed investment period, while others allow early withdrawal with certain conditions. We recommend reading the terms of each contract carefully before investing.">يعتمد ذلك على نوع العقد ومدة المشروع. بعض المشاريع لها فترة استثمار محددة، بينما البعض الآخر يتيح السحب المبكر مع شروط معينة. نوصي بقراءة شروط كل عقد بعناية قبل الاستثمار.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Contact Section -->
+    <section class="cta-section" id="contact">
+        <div class="cta-container fade-in">
+            <div class="material-icons cta-icon">connect_without_contact</div>
+            <h2 data-ar="هل أنت مستعد لبدء رحلتك الاستثمارية؟" data-en="Are You Ready to Start Your Investment Journey?">هل أنت مستعد لبدء رحلتك الاستثمارية؟</h2>
+            <p data-ar="تواصل معنا الآن واحصل على استشارة مجانية حول أفضل فرص الاستثمار الإسلامي المتاحة لك" data-en="Contact us now and get a free consultation on the best Islamic investment opportunities available to you">تواصل معنا الآن واحصل على استشارة مجانية حول أفضل فرص الاستثمار الإسلامي المتاحة لك</p>
+            
+            <div class="cta-buttons-grid">
+                <a href="https://moh222salah.github.io/cv" target="_blank" class="cta-btn">
+                    <span class="material-icons">account_circle</span>
+                    <div class="cta-btn-text">
+                        <div class="cta-btn-title" data-ar="البورتفوليو الشخصي" data-en="Personal Portfolio">البورتفوليو الشخصي</div>
+                        <div class="cta-btn-subtitle" data-ar="تعرف على المطور والمصمم" data-en="Meet the Developer & Designer">تعرف على المطور والمصمم</div>
+                    </div>
+                </a>
+
+                <a href="https://wa.me/201113903070" target="_blank" class="cta-btn">
+                    <span class="material-icons">chat</span>
+                    <div class="cta-btn-text">
+                        <div class="cta-btn-title" data-ar="واتساب مباشر" data-en="Direct WhatsApp">واتساب مباشر</div>
+                        <div class="cta-btn-subtitle" data-ar="تواصل فوري عبر الواتساب" data-en="Instant communication via WhatsApp">تواصل فوري عبر الواتساب</div>
+                    </div>
+                </a>
+            </div>
+
+            <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(212, 175, 55, 0.1); border-radius: 15px; border: 1px solid rgba(212, 175, 55, 0.3);">
+                <p style="font-size: 0.95rem; margin-bottom: 0.5rem;" data-ar="📧 البريد الإلكتروني: info@islamicinvest.com" data-en="📧 Email: info@islamicinvest.com">📧 البريد الإلكتروني: info@islamicinvest.com</p>
+                <p style="font-size: 0.95rem; margin-bottom: 0;" data-ar="⏰ ساعات العمل: الأحد - الخميس | 9 ص - 6 م" data-en="⏰ Working Hours: Sunday - Thursday | 9 AM - 6 PM">⏰ ساعات العمل: الأحد - الخميس | 9 ص - 6 م</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 data-ar="عن المنصة" data-en="About Platform">عن المنصة</h3>
+                <p data-ar="منصة استثمار إسلامية ذكية تربط رأس المال بالمشاريع الحقيقية بإشراف شرعي وتقني كامل." data-en="A smart Islamic investment platform connecting capital with real projects under full Sharia and technical supervision.">منصة استثمار إسلامية ذكية تربط رأس المال بالمشاريع الحقيقية بإشراف شرعي وتقني كامل.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><span class="material-icons">language</span></a>
+                    <a href="#" class="social-link"><span class="material-icons">email</span></a>
+                    <a href="#" class="social-link"><span class="material-icons">phone</span></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3 data-ar="روابط سريعة" data-en="Quick Links">روابط سريعة</h3>
+                <ul class="footer-links">
+                    <li><a href="#features"><span class="material-icons">arrow_left</span><span data-ar="المزايا" data-en="Features">المزايا</span></a></li>
+                    <li><a href="#models"><span class="material-icons">arrow_left</span><span data-ar="نماذج الاستثمار" data-en="Investment Models">نماذج الاستثمار</span></a></li>
+                    <li><a href="#dashboard"><span class="material-icons">arrow_left</span><span data-ar="لوحة التحكم" data-en="Dashboard">لوحة التحكم</span></a></li>
+                    <li><a href="#technology"><span class="material-icons">arrow_left</span><span data-ar="التقنيات" data-en="Technology">التقنيات</span></a></li>
+                    <li><a href="#faq"><span class="material-icons">arrow_left</span><span data-ar="الأسئلة الشائعة" data-en="FAQ">الأسئلة الشائعة</span></a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3 data-ar="خدماتنا" data-en="Our Services">خدماتنا</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><span class="material-icons">arrow_left</span><span data-ar="استثمار المضاربة" data-en="Mudarabah Investment">استثمار المضاربة</span></a></li>
+                    <li><a href="#"><span class="material-icons">arrow_left</span><span data-ar="استثمار المشاركة" data-en="Musharakah Investment">استثمار المشاركة</span></a></li>
+                    <li><a href="#"><span class="material-icons">arrow_left</span><span data-ar="الإشراف الشرعي" data-en="Sharia Supervision">الإشراف الشرعي</span></a></li>
+                    <li><a href="#"><span class="material-icons">arrow_left</span><span data-ar="التقارير المالية" data-en="Financial Reports">التقارير المالية</span></a></li>
+                    <li><a href="#"><span class="material-icons">arrow_left</span><span data-ar="الاستشارات" data-en="Consultations">الاستشارات</span></a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3 data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</h3>
+                <ul class="footer-links">
+                    <li><span class="material-icons">location_on</span><span data-ar="السعودية - مصر - الإمارات" data-en="Saudi Arabia - Egypt - UAE">السعودية - مصر - الإمارات</span></li>
+                    <li><span class="material-icons">email</span>info@islamicinvest.com</li>
+                    <li><span class="material-icons">phone</span>+966 XX XXX XXXX</li>
+                    <li><span class="material-icons">schedule</span><span data-ar="الأحد - الخميس: 9 ص - 6 م" data-en="Sunday - Thursday: 9 AM - 6 PM">الأحد - الخميس: 9 ص - 6 م</span></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p data-ar="&copy; 2026 منصة الاستثمار الإسلامي الذكية. جميع الحقوق محفوظة." data-en="&copy; 2026 Smart Islamic Investment Platform. All Rights Reserved.">&copy; 2026 منصة الاستثمار الإسلامي الذكية. جميع الحقوق محفوظة.</p>
+            
+            <div class="designer-credit">
+                <p><strong>Designed & Architected by MOHAMED SALAH</strong></p>
+                <p>Senior Full-Stack & ERPNext Developer</p>
+                <p>📱 WhatsApp: <a href="https://wa.me/201113903070">+20 1113903070</a></p>
+                <p>🌐 Website: <a href="https://moh222salah.github.io/cv" target="_blank">moh222salah.github.io/cv</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <span class="material-icons">keyboard_arrow_up</span>
+    </button>
+
+    <script>
+        // Comprehensive Translation Object
+        const translations = {
+            ar: {
+                // Header & Navigation
+                logoText: 'منصة الاستثمار الإسلامي',
+                langText: 'EN',
+                
+                // Hero Section
+                heroTitle: 'منصة الاستثمار الإسلامي الذكية',
+                heroSubtitle: 'استثمر بثقة وفق الشريعة الإسلامية',
+                heroDescription: 'منصة متكاملة تربط رأس المال بالمشاريع الحقيقية من خلال عقود المضاربة والمشاركة، بإشراف شرعي وتقني كامل يضمن الشفافية والنزاهة في كل خطوة.',
+                btnStart: 'ابدأ الاستثمار الآن',
+                btnWatch: 'شاهد كيف تعمل',
+                
+                // Features Section
+                featuresTitle: 'لماذا تختار منصتنا؟',
+                featuresSubtitle: 'نقدم حلولاً استثمارية مبتكرة متوافقة مع الشريعة الإسلامية، مدعومة بأحدث التقنيات',
+                
+                // Models Section
+                modelsTitle: 'نماذج الاستثمار الإسلامية',
+                modelsSubtitle: 'اختر النموذج الاستثماري الذي يناسب أهدافك المالية',
+                
+                // Dashboard Section
+                dashboardTitle: 'لوحة التحكم الذكية',
+                dashboardSubtitle: 'تتبع استثماراتك وأرباحك في الوقت الفعلي',
+                statInvestments: 'إجمالي الاستثمارات',
+                statReturn: 'متوسط العائد',
+                statProjects: 'مشاريع نشطة',
+                statInvestors: 'مستثمرين',
+                
+                // Technology Section
+                techTitle: 'التقنيات المستخدمة',
+                techSubtitle: 'نستخدم أحدث التقنيات لضمان أفضل تجربة استثمارية',
+                
+                // FAQ Section
+                faqTitle: 'الأسئلة الشائعة',
+                faqSubtitle: 'إجابات على أهم الأسئلة حول المنصة',
+                
+                // CTA Section
+                ctaTitle: 'هل أنت مستعد لبدء رحلتك الاستثمارية؟',
+                ctaDescription: 'تواصل معنا الآن واحصل على استشارة مجانية حول أفضل فرص الاستثمار الإسلامي المتاحة لك',
+                ctaPortfolio: 'البورتفوليو الشخصي',
+                ctaPortfolioSub: 'تعرف على المطور والمصمم',
+                ctaWhatsapp: 'واتساب مباشر',
+                ctaWhatsappSub: 'تواصل فوري عبر الواتساب',
+                
+                // Footer
+                footerAbout: 'عن المنصة',
+                footerQuickLinks: 'روابط سريعة',
+                footerServices: 'خدماتنا',
+                footerContact: 'تواصل معنا',
+                footerCopyright: '© 2026 منصة الاستثمار الإسلامي الذكية. جميع الحقوق محفوظة.'
+            },
+            en: {
+                // Header & Navigation
+                logoText: 'Smart Islamic Investment',
+                langText: 'ع',
+                
+                // Hero Section
+                heroTitle: 'Smart Islamic Investment Platform',
+                heroSubtitle: 'Invest with Confidence According to Islamic Law',
+                heroDescription: 'A comprehensive platform connecting capital with real projects through Mudarabah and Musharakah contracts, with full Sharia and technical supervision ensuring transparency and integrity at every step.',
+                btnStart: 'Start Investing Now',
+                btnWatch: 'Watch How It Works',
+                
+                // Features Section
+                featuresTitle: 'Why Choose Our Platform?',
+                featuresSubtitle: 'We offer innovative Sharia-compliant investment solutions, powered by the latest technologies',
+                
+                // Models Section
+                modelsTitle: 'Islamic Investment Models',
+                modelsSubtitle: 'Choose the investment model that suits your financial goals',
+                
+                // Dashboard Section
+                dashboardTitle: 'Smart Dashboard',
+                dashboardSubtitle: 'Track your investments and profits in real-time',
+                statInvestments: 'Total Investments',
+                statReturn: 'Average Return',
+                statProjects: 'Active Projects',
+                statInvestors: 'Investors',
+                
+                // Technology Section
+                techTitle: 'Technologies Used',
+                techSubtitle: 'We use the latest technologies to ensure the best investment experience',
+                
+                // FAQ Section
+                faqTitle: 'Frequently Asked Questions',
+                faqSubtitle: 'Answers to the most important questions about the platform',
+                
+                // CTA Section
+                ctaTitle: 'Are You Ready to Start Your Investment Journey?',
+                ctaDescription: 'Contact us now and get a free consultation on the best Islamic investment opportunities available to you',
+                ctaPortfolio: 'Personal Portfolio',
+                ctaPortfolioSub: 'Meet the Developer & Designer',
+                ctaWhatsapp: 'Direct WhatsApp',
+                ctaWhatsappSub: 'Instant communication via WhatsApp',
+                
+                // Footer
+                footerAbout: 'About Platform',
+                footerQuickLinks: 'Quick Links',
+                footerServices: 'Our Services',
+                footerContact: 'Contact Us',
+                footerCopyright: '© 2026 Smart Islamic Investment Platform. All Rights Reserved.'
+            }
+        };
+
+        // Detect browser/system language
+        function detectLanguage() {
+            const browserLang = navigator.language || navigator.userLanguage;
+            return browserLang.startsWith('ar') ? 'ar' : 'en';
+        }
+
+        let currentLang = localStorage.getItem('language') || detectLanguage();
+
+        // Language Toggle Function
+        function toggleLanguage() {
+            const html = document.documentElement;
+            
+            if (currentLang === 'ar') {
+                currentLang = 'en';
+                html.setAttribute('lang', 'en');
+                html.setAttribute('dir', 'ltr');
+            } else {
+                currentLang = 'ar';
+                html.setAttribute('lang', 'ar');
+                html.setAttribute('dir', 'rtl');
+            }
+
+            updateContent();
+            localStorage.setItem('language', currentLang);
+        }
+
+        // Update all translatable content
+        function updateContent() {
+            const lang = translations[currentLang];
+            
+            // Update all elements with data-ar and data-en attributes
+            document.querySelectorAll('[data-ar][data-en]').forEach(el => {
+                const text = el.getAttribute(`data-${currentLang}`);
+                if (text) {
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.placeholder = text;
+                    } else {
+                        el.innerHTML = text;
+                    }
+                }
+            });
+
+            // Update language toggle button
+            document.querySelector('.lang-text').textContent = lang.langText;
+        }
+
+        // Theme Toggle Function
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const themeIcon = document.querySelector('#themeToggle .material-icons');
+            
+            if (currentTheme === 'light') {
+                html.removeAttribute('data-theme');
+                themeIcon.textContent = 'light_mode';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                html.setAttribute('data-theme', 'light');
+                themeIcon.textContent = 'dark_mode';
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // Initialize on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            // Set initial language
+            const html = document.documentElement;
+            html.setAttribute('lang', currentLang);
+            html.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
+            updateContent();
+            
+            // Set initial theme (default to dark mode as it suits the design better)
+            const savedTheme = localStorage.getItem('theme');
+            const themeIcon = document.querySelector('#themeToggle .material-icons');
+            
+            if (savedTheme === 'light') {
+                html.setAttribute('data-theme', 'light');
+                themeIcon.textContent = 'dark_mode';
+            } else {
+                html.removeAttribute('data-theme');
+                themeIcon.textContent = 'light_mode';
+            }
+            
+            // Add theme toggle event listener
+            document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+        });
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const navMenu = document.getElementById('navMenu');
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            
+            if (!navMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // FAQ Toggle
+        function toggleFaq(element) {
+            const faqItem = element.parentElement;
+            const allFaqItems = document.querySelectorAll('.faq-item');
+            
+            // Close all other FAQ items
+            allFaqItems.forEach(item => {
+                if (item !== faqItem) {
+                    item.classList.remove('active');
+                }
+            });
+            
+            // Toggle current FAQ item
+            faqItem.classList.toggle('active');
+        }
+
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+
+            // Header scroll effect
+            const header = document.querySelector('.header');
+            if (window.pageYOffset > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    document.getElementById('navMenu').classList.remove('active');
+                }
+            });
+        });
+
+        // Prevent double-tap zoom on iOS
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', (e) => {
+            const now = Date.now();
+            if (now - lastTouchEnd <= 300) {
+                e.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
+    </script>
+</body>
+</html>
